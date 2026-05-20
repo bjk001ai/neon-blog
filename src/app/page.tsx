@@ -11,10 +11,10 @@ export default async function Home() {
   return (
     <div className="animate-in fade-in duration-700">
       <div className="mb-14 text-center">
-        <h1 className="text-[40px] font-bold text-gray-800 mb-3 tracking-tight">HTML</h1>
+        <h1 className="text-[40px] font-bold text-gray-800 mb-3 tracking-tight">Latest Posts</h1>
         <div className="flex items-center justify-center gap-4 mb-6">
           <div className="h-[1px] w-12 bg-gray-300"></div>
-          <p className="text-gray-500 text-[14px] font-medium tracking-wide">공부한 내용을 정리합니다</p>
+          <p className="text-gray-500 text-[14px] font-medium tracking-wide">최신 스터디 기록 및 블로그 포스트</p>
           <div className="h-[1px] w-12 bg-gray-300"></div>
         </div>
         <div className="mt-2 w-16 h-[3px] bg-[#ff6b6b] mx-auto rounded-full"></div>

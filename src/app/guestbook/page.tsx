@@ -3,6 +3,8 @@ import { guestbook } from "@/db/schema";
 import { desc } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 
+export const revalidate = 0; // Force dynamic fetching for the demo
+
 export default async function GuestbookPage() {
   const entries = await db.select().from(guestbook).orderBy(desc(guestbook.createdAt));
 

@@ -53,109 +53,186 @@ export default async function RootLayout({
         
         <main className="flex-1 flex flex-col min-w-0 h-screen overflow-y-auto">
           {/* Top Navigation Bar */}
-          <header className="group h-[72px] border-b border-gray-200/60 bg-white/80 backdrop-blur-md flex items-center justify-between px-10 shrink-0 sticky top-0 z-20">
+          <header className="h-[72px] border-b border-gray-200/60 bg-white/80 backdrop-blur-md flex items-center justify-between px-10 shrink-0 sticky top-0 z-20">
             <div className="flex gap-8 text-[13px] text-gray-500 font-semibold tracking-wide uppercase h-full items-center">
-              <Link href="/category/Programming" className="hover:text-gray-900 transition-colors flex items-center h-full">Programming <span className="text-[10px] ml-1 opacity-50 group-hover:rotate-180 transition-transform duration-300">▼</span></Link>
-              <Link href="/category/DevOps" className="hover:text-gray-900 transition-colors flex items-center h-full">DevOps <span className="text-[10px] ml-1 opacity-50 group-hover:rotate-180 transition-transform duration-300">▼</span></Link>
-              <Link href="/category/DevKit" className="hover:text-gray-900 transition-colors flex items-center h-full">DevKit <span className="text-[10px] ml-1 opacity-50 group-hover:rotate-180 transition-transform duration-300">▼</span></Link>
-            </div>
-            
-            {/* Mega Menu Dropdown */}
-            <div className="absolute top-[72px] left-0 right-0 bg-white shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0 border-t border-gray-100">
-              <div className="max-w-7xl mx-auto p-10 grid grid-cols-4 gap-x-12 gap-y-10">
-                {/* Column 1 */}
-                <div className="flex flex-col gap-6">
-                  <div>
-                    <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">KNOWLEDGE</h3>
-                    <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> 자료구조</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> 알고리즘</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> 디자인 패턴</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> WEB 지식</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> HTTP 지식</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> Network 지식</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> CS 지식</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> IT 용어 지식</Link></li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5 mt-2">FILES</h3>
-                    <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">📄</span> CSV</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">📄</span> XML</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">📄</span> JSON</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">📄</span> YAML</Link></li>
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Column 2 */}
-                <div className="flex flex-col gap-6">
-                  <div>
-                    <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">OS</h3>
-                    <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">❖</span> Window</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🐧</span> Linux</Link></li>
-                    </ul>
-                  </div>
-                  <div className="border-t border-gray-100 pt-8 mt-2">
-                    <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">MANAGEMENT</h3>
-                    <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">♦</span> GIT</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🐙</span> Github</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">☕</span> Jenkins</Link></li>
-                    </ul>
-                  </div>
-                  <div className="border-t border-gray-100 pt-8 mt-2">
-                    <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">DBMS</h3>
-                    <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🗄️</span> 데이터베이스 이론</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🐬</span> MySQL</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🍃</span> MongoDB</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🔴</span> Redis</Link></li>
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Column 3 */}
-                <div className="flex flex-col gap-6">
-                  <div>
-                    <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">SERVER</h3>
-                    <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⚡</span> Apache</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🐱</span> Tomcat</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🚢</span> Jetty</Link></li>
-                    </ul>
-                  </div>
-                  <div className="border-t border-gray-100 pt-8 mt-2">
-                    <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">CLOUD</h3>
-                    <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">☁️</span> Amazon Cloud</Link></li>
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Column 4 */}
-                <div className="flex flex-col gap-6">
-                  <div>
-                    <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">TESTING</h3>
-                    <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🧪</span> SW 테스팅 이론</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🎯</span> PICT</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">☑️</span> Selenium</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">📬</span> Postman</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🃏</span> JEST</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🚀</span> Artillery</Link></li>
-                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🐍</span> Pywinauto</Link></li>
-                    </ul>
+              
+              {/* Programming Menu */}
+              <div className="group h-full flex items-center">
+                <Link href="/category/Programming" className="hover:text-gray-900 transition-colors flex items-center h-full">Programming <span className="text-[10px] ml-1 opacity-50 group-hover:rotate-180 transition-transform duration-300">▼</span></Link>
+                <div className="absolute top-[72px] left-0 right-0 bg-white shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0 border-t border-gray-100">
+                  <div className="max-w-7xl mx-auto p-10 grid grid-cols-4 gap-x-12 gap-y-10">
+                    <div className="flex flex-col gap-6">
+                      <div>
+                        <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">KNOWLEDGE</h3>
+                        <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                          <li><Link href={`/category/${encodeURIComponent('자료구조')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> 자료구조</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('알고리즘')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> 알고리즘</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('디자인 패턴')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> 디자인 패턴</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('WEB 지식')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> WEB 지식</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('CS 지식')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> CS 지식</Link></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-6">
+                      <div>
+                        <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">LANGUAGE</h3>
+                        <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                          <li><Link href={`/category/${encodeURIComponent('C')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">📝</span> C</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('Java')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">☕</span> Java</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('JavaScript')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🟨</span> JavaScript</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('TypeScript')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🟦</span> TypeScript</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('Python')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🐍</span> Python</Link></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-6">
+                      <div>
+                        <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">FRAMEWORK</h3>
+                        <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                          <li><Link href={`/category/${encodeURIComponent('React')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⚛️</span> React</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('Node.js')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🟢</span> Node.js</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('Nest.js')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🐈</span> Nest.js</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('Next.js')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">▲</span> Next.js</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('Spring')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🌱</span> Spring</Link></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-6">
+                      <div>
+                        <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">STYLE SHEET</h3>
+                        <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                          <li><Link href={`/category/${encodeURIComponent('CSS')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🎨</span> CSS</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('Sass')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">💅</span> Sass</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('Bootstrap')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🅱️</span> Bootstrap</Link></li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              {/* DevOps Menu */}
+              <div className="group h-full flex items-center">
+                <Link href="/category/DevOps" className="hover:text-gray-900 transition-colors flex items-center h-full">DevOps <span className="text-[10px] ml-1 opacity-50 group-hover:rotate-180 transition-transform duration-300">▼</span></Link>
+                <div className="absolute top-[72px] left-0 right-0 bg-white shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0 border-t border-gray-100">
+                  <div className="max-w-7xl mx-auto p-10 grid grid-cols-6 gap-x-8 gap-y-10">
+                    <div className="flex flex-col gap-6">
+                      <div>
+                        <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">OS</h3>
+                        <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                          <li><Link href={`/category/${encodeURIComponent('Window')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">❖</span> Window</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('Linux')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🐧</span> Linux</Link></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-6">
+                      <div>
+                        <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">SERVER</h3>
+                        <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                          <li><Link href={`/category/${encodeURIComponent('Apache')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⚡</span> Apache</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('Tomcat')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🐱</span> Tomcat</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('Jetty')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🚢</span> Jetty</Link></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-6">
+                      <div>
+                        <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">CONTAINER</h3>
+                        <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                          <li><Link href={`/category/${encodeURIComponent('Docker')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🐳</span> Docker</Link></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-6">
+                      <div>
+                        <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">CLOUD</h3>
+                        <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                          <li><Link href={`/category/${encodeURIComponent('AWS')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">☁️</span> AWS</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('MLOps')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🤖</span> MLOps</Link></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-6">
+                      <div>
+                        <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">MANAGEMENT</h3>
+                        <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                          <li><Link href={`/category/${encodeURIComponent('GIT')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">♦</span> GIT</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('Github')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🐙</span> Github</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('Jenkins')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">☕</span> Jenkins</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('CI/CD')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">♾️</span> CI/CD</Link></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-6">
+                      <div>
+                        <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">DBMS</h3>
+                        <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                          <li><Link href={`/category/${encodeURIComponent('데이터베이스 이론')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🗄️</span> DB 이론</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('MySQL')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🐬</span> MySQL</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('MongoDB')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🍃</span> MongoDB</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('Redis')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🟥</span> Redis</Link></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* DevKit Menu */}
+              <div className="group h-full flex items-center">
+                <Link href="/category/DevKit" className="hover:text-gray-900 transition-colors flex items-center h-full">DevKit <span className="text-[10px] ml-1 opacity-50 group-hover:rotate-180 transition-transform duration-300">▼</span></Link>
+                <div className="absolute top-[72px] left-0 right-0 bg-white shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0 border-t border-gray-100">
+                  <div className="max-w-7xl mx-auto p-10 grid grid-cols-4 gap-x-12 gap-y-10">
+                    <div className="flex flex-col gap-6">
+                      <div>
+                        <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">MARK UP</h3>
+                        <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                          <li><Link href={`/category/${encodeURIComponent('HTML')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🌐</span> HTML</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('Markdown')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⬇️</span> Markdown</Link></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-6">
+                      <div>
+                        <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">FILES</h3>
+                        <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                          <li><Link href={`/category/${encodeURIComponent('CSV')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">📄</span> CSV</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('XML')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">📄</span> XML</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('JSON')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">📄</span> JSON</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('YAML')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">📄</span> YAML</Link></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-6">
+                      <div>
+                        <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">TESTING</h3>
+                        <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                          <li><Link href={`/category/${encodeURIComponent('SW 테스팅 이론')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🧪</span> SW 테스팅 이론</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('Cypress')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🌲</span> Cypress</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('JEST')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🃏</span> JEST</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('Selenium')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">☑️</span> Selenium</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('Postman')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">📬</span> Postman</Link></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-6">
+                      <div>
+                        <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">EDITOR</h3>
+                        <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                          <li><Link href={`/category/${encodeURIComponent('VSCode')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">💻</span> VSCode</Link></li>
+                          <li><Link href={`/category/${encodeURIComponent('IntelliJ')}`} className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🛠️</span> IntelliJ</Link></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
             <div className="flex items-center gap-6 relative z-10">
               <span className="font-bold text-gray-800 tracking-tight flex items-center gap-2 border-r border-gray-200 pr-6 mr-2 hidden md:flex">
-                Bong Dev 👨‍💻
+                Bong Dev 👾
               </span>
               
               {/* Notifications */}

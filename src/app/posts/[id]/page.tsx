@@ -3,6 +3,10 @@ import { posts } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+
+export const revalidate = 0; // Force dynamic fetching for the demo
 
 export default async function PostDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;
@@ -57,10 +61,15 @@ export default async function PostDetailPage({ params }: { params: Promise<{ id:
         </div>
       )}
 
-      <div 
-        className="prose prose-lg max-w-none text-gray-700 leading-relaxed prose-headings:font-bold prose-a:text-blue-600 hover:prose-a:text-blue-500 prose-img:rounded-xl prose-pre:bg-gray-900 prose-pre:text-gray-100"
-        dangerouslySetInnerHTML={{ __html: post.content }} 
-      />
+      <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed prose-headings:font-bold prose-a:text-blue-600 hover:prose-a:text-blue-500 prose-img:rounded-xl prose-pre:bg-gray-900 prose-pre:text-gray-100">
+        {post.content.trim().startsWith('<') || post.content.includes('</p>') || post.content.includes('</div>') || post.content.includes('</figure>') ? (
+          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+        ) : (
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {post.content}
+          </ReactMarkdown>
+        )}
+      </div>
     </div>
   );
 }

@@ -18,9 +18,8 @@ export default function Sidebar({ counts = {}, totalCount = 0 }: { counts?: Reco
 
   const [expanded, setExpanded] = useState<Record<string, boolean>>({
     'Programming': true, 
-    'Mark Up': true,
-    'Style Sheet': true,
-    'Language': true,
+    'DevOps': false,
+    'DevKit': false,
   });
 
   const toggleExpand = (name: string, e: React.MouseEvent) => {
@@ -32,15 +31,10 @@ export default function Sidebar({ counts = {}, totalCount = 0 }: { counts?: Reco
     <aside className="w-[280px] flex-shrink-0 border-r border-gray-200 bg-white hidden md:flex flex-col sticky top-0 h-screen overflow-y-auto shadow-[2px_0_10px_rgba(0,0,0,0.03)] z-10 custom-scrollbar">
       {/* Profile Section */}
       <div className="p-10 flex flex-col items-center border-b border-gray-100 bg-gradient-to-b from-gray-50 to-white">
-        <div className="w-28 h-28 rounded-[2rem] overflow-hidden bg-gray-200 mb-5 shadow-md relative group">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://images.unsplash.com/photo-1552053831-71594a27632d?q=80&w=200&auto=format&fit=crop"
-            alt="Profile Image"
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-          />
+        <div className="w-28 h-28 rounded-[2rem] bg-gradient-to-tr from-[#00f2fe] via-[#4facfe] to-[#8b5cf6] mb-5 shadow-[0_8px_30px_rgba(79,172,254,0.4)] flex items-center justify-center relative group select-none">
+          <span className="text-[52px] group-hover:scale-110 transition-transform duration-500 ease-out">👾</span>
         </div>
-        <h2 className="font-bold text-gray-900 text-lg tracking-tight">Bong Dev 👨‍💻</h2>
+        <h2 className="font-bold text-gray-900 text-lg tracking-tight">Bong Dev 👾</h2>
         <p className="text-sm text-gray-500 mt-1 font-medium">jk</p>
         
         {/* Top Icons */}

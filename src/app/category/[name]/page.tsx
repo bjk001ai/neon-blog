@@ -4,6 +4,8 @@ import { inArray, desc } from "drizzle-orm";
 import PostCard from "@/components/PostCard";
 import { getLeafCategories } from "@/lib/categories";
 
+export const revalidate = 0; // Force dynamic fetching for the demo
+
 export default async function CategoryPage({ params }: { params: Promise<{ name: string }> }) {
   const resolvedParams = await params;
   const categoryName = decodeURIComponent(resolvedParams.name);
