@@ -53,13 +53,107 @@ export default async function RootLayout({
         
         <main className="flex-1 flex flex-col min-w-0 h-screen overflow-y-auto">
           {/* Top Navigation Bar */}
-          <header className="h-[72px] border-b border-gray-200/60 bg-white/80 backdrop-blur-md flex items-center justify-between px-10 shrink-0 sticky top-0 z-20">
-            <div className="flex gap-8 text-[13px] text-gray-500 font-semibold tracking-wide uppercase">
-              <Link href="/category/Programming" className="hover:text-gray-900 transition-colors flex items-center">Programming <span className="text-[10px] ml-1 opacity-50">▼</span></Link>
-              <Link href="/category/DevOps" className="hover:text-gray-900 transition-colors flex items-center">DevOps <span className="text-[10px] ml-1 opacity-50">▼</span></Link>
-              <Link href="/category/DevKit" className="hover:text-gray-900 transition-colors flex items-center">DevKit <span className="text-[10px] ml-1 opacity-50">▼</span></Link>
+          <header className="group h-[72px] border-b border-gray-200/60 bg-white/80 backdrop-blur-md flex items-center justify-between px-10 shrink-0 sticky top-0 z-20">
+            <div className="flex gap-8 text-[13px] text-gray-500 font-semibold tracking-wide uppercase h-full items-center">
+              <Link href="/category/Programming" className="hover:text-gray-900 transition-colors flex items-center h-full">Programming <span className="text-[10px] ml-1 opacity-50 group-hover:rotate-180 transition-transform duration-300">▼</span></Link>
+              <Link href="/category/DevOps" className="hover:text-gray-900 transition-colors flex items-center h-full">DevOps <span className="text-[10px] ml-1 opacity-50 group-hover:rotate-180 transition-transform duration-300">▼</span></Link>
+              <Link href="/category/DevKit" className="hover:text-gray-900 transition-colors flex items-center h-full">DevKit <span className="text-[10px] ml-1 opacity-50 group-hover:rotate-180 transition-transform duration-300">▼</span></Link>
             </div>
-            <div className="flex items-center gap-6">
+            
+            {/* Mega Menu Dropdown */}
+            <div className="absolute top-[72px] left-0 right-0 bg-white shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0 border-t border-gray-100">
+              <div className="max-w-7xl mx-auto p-10 grid grid-cols-4 gap-x-12 gap-y-10">
+                {/* Column 1 */}
+                <div className="flex flex-col gap-6">
+                  <div>
+                    <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">KNOWLEDGE</h3>
+                    <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> 자료구조</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> 알고리즘</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> 디자인 패턴</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> WEB 지식</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> HTTP 지식</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> Network 지식</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> CS 지식</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⌘</span> IT 용어 지식</Link></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5 mt-2">FILES</h3>
+                    <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">📄</span> CSV</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">📄</span> XML</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">📄</span> JSON</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">📄</span> YAML</Link></li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Column 2 */}
+                <div className="flex flex-col gap-6">
+                  <div>
+                    <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">OS</h3>
+                    <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">❖</span> Window</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🐧</span> Linux</Link></li>
+                    </ul>
+                  </div>
+                  <div className="border-t border-gray-100 pt-8 mt-2">
+                    <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">MANAGEMENT</h3>
+                    <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">♦</span> GIT</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🐙</span> Github</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">☕</span> Jenkins</Link></li>
+                    </ul>
+                  </div>
+                  <div className="border-t border-gray-100 pt-8 mt-2">
+                    <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">DBMS</h3>
+                    <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🗄️</span> 데이터베이스 이론</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🐬</span> MySQL</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🍃</span> MongoDB</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🔴</span> Redis</Link></li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Column 3 */}
+                <div className="flex flex-col gap-6">
+                  <div>
+                    <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">SERVER</h3>
+                    <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">⚡</span> Apache</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🐱</span> Tomcat</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🚢</span> Jetty</Link></li>
+                    </ul>
+                  </div>
+                  <div className="border-t border-gray-100 pt-8 mt-2">
+                    <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">CLOUD</h3>
+                    <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">☁️</span> Amazon Cloud</Link></li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Column 4 */}
+                <div className="flex flex-col gap-6">
+                  <div>
+                    <h3 className="text-[#ff6b6b] text-[11px] font-bold tracking-widest mb-5">TESTING</h3>
+                    <ul className="flex flex-col gap-3.5 text-[13px] text-gray-600 font-medium">
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🧪</span> SW 테스팅 이론</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🎯</span> PICT</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">☑️</span> Selenium</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">📬</span> Postman</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🃏</span> JEST</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🚀</span> Artillery</Link></li>
+                      <li><Link href="#" className="hover:text-gray-900 hover:translate-x-1 transition-transform inline-flex items-center gap-2.5"><span className="text-gray-400 text-xs">🐍</span> Pywinauto</Link></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-6 relative z-10">
               <span className="font-bold text-gray-800 tracking-tight flex items-center gap-2 border-r border-gray-200 pr-6 mr-2 hidden md:flex">
                 Bong Dev 👨‍💻
               </span>
