@@ -281,6 +281,11 @@ export default function RootLayout({
                 </div>
               </div>
 
+              {/* Blog Link */}
+              <div className="h-full flex items-center">
+                <Link href="/blog" className="hover:text-gray-900 transition-colors flex items-center h-full">Blog</Link>
+              </div>
+
             </div>
 
             <div className="flex items-center gap-6 relative z-10">
