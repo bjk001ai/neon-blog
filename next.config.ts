@@ -1,10 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  cacheComponents: true,
-  experimental: {
-    instantNavigationDevToolsToggle: true,
-  },
+  /* config options here */
 };
 
 export default nextConfig;

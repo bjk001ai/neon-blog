@@ -7,11 +7,6 @@ import { unstable_cache } from "next/cache";
 import { Suspense } from "react";
 import Link from "next/link";
 
-// Enable static prefetching of the shell for instant loading and client navigation
-export const unstable_instant = {
-  prefetch: 'static',
-};
-
 // Cache the latest 3 posts query for 5 minutes (300 seconds)
 const getCachedLatestPosts = unstable_cache(
   async () => {
