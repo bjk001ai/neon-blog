@@ -6,14 +6,26 @@ import Link from "next/link";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-export const revalidate = 0; // Force dynamic fetching for the demo
+import { unstable_cache } from "next/cache";
+
+const getCachedPost = unstable_cache(
+  async (postId: number) => {
+    const results = await db.select().from(posts).where(eq(posts.id, postId));
+    return results[0] || null;
+  },
+  ["post-detail"],
+  { revalidate: 300, tags: ["posts"] }
+);
 
 export default async function PostDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;
   const id = parseInt(resolvedParams.id, 10);
   if (isNaN(id)) return notFound();
 
-  const [post] = await db.select().from(posts).where(eq(posts.id, id));
+  const post = await getCachedPost(id).catch((err) => {
+    console.error("Failed to fetch post detail:", err);
+    return null;
+  });
 
   if (!post) {
     return notFound();

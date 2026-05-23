@@ -4,7 +4,15 @@ import { inArray, desc } from "drizzle-orm";
 import PostCard from "@/components/PostCard";
 import { getLeafCategories } from "@/lib/categories";
 
-export const revalidate = 0; // Force dynamic fetching for the demo
+import { unstable_cache } from "next/cache";
+
+const getCachedCategoryPosts = unstable_cache(
+  async (targetCats: string[]) => {
+    return await db.select().from(posts).where(inArray(posts.category, targetCats)).orderBy(desc(posts.createdAt));
+  },
+  ["category-posts"],
+  { revalidate: 300, tags: ["posts"] }
+);
 
 export default async function CategoryPage({ params }: { params: Promise<{ name: string }> }) {
   const resolvedParams = await params;
@@ -12,7 +20,10 @@ export default async function CategoryPage({ params }: { params: Promise<{ name:
   
   const targetCategories = getLeafCategories(categoryName);
   
-  const categoryPosts = await db.select().from(posts).where(inArray(posts.category, targetCategories)).orderBy(desc(posts.createdAt));
+  const categoryPosts = await getCachedCategoryPosts(targetCategories).catch((err) => {
+    console.error("Failed to fetch category posts:", err);
+    return [];
+  });
 
   return (
     <div className="animate-in fade-in duration-700">

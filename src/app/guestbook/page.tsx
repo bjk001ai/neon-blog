@@ -1,12 +1,21 @@
 import { db } from "@/db";
 import { guestbook } from "@/db/schema";
 import { desc } from "drizzle-orm";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, updateTag, unstable_cache } from "next/cache";
 
-export const revalidate = 0; // Force dynamic fetching for the demo
+const getCachedGuestbook = unstable_cache(
+  async () => {
+    return await db.select().from(guestbook).orderBy(desc(guestbook.createdAt));
+  },
+  ["guestbook-entries"],
+  { revalidate: 300, tags: ["guestbook"] }
+);
 
 export default async function GuestbookPage() {
-  const entries = await db.select().from(guestbook).orderBy(desc(guestbook.createdAt));
+  const entries = await getCachedGuestbook().catch((err) => {
+    console.error("Failed to fetch guestbook entries:", err);
+    return [];
+  });
 
   async function addEntry(formData: FormData) {
     "use server";
@@ -18,6 +27,7 @@ export default async function GuestbookPage() {
       message: message.trim(),
     });
     
+    updateTag("guestbook");
     revalidatePath("/guestbook");
   }
 
