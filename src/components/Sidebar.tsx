@@ -3,13 +3,13 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
-import { CATEGORIES as categories } from "@/lib/categories";
+import { CATEGORIES as categories, CategoryNode } from "@/lib/categories";
 
 export default function Sidebar({ counts = {}, totalCount = 0 }: { counts?: Record<string, number>, totalCount?: number }) {
-  const getCumulativeCount = (category: any): number => {
+  const getCumulativeCount = (category: CategoryNode): number => {
     let sum = counts[category.name] || 0;
     if (category.children && category.children.length > 0) {
-      category.children.forEach((child: any) => {
+      category.children.forEach((child: CategoryNode) => {
         sum += getCumulativeCount(child);
       });
     }

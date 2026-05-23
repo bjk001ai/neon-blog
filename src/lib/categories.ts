@@ -40,7 +40,7 @@ export const CATEGORIES: CategoryNode[] = [
 ];
 
 export function getLeafCategories(nodeName: string): string[] {
-  let leaves: string[] = [];
+  const leaves: string[] = [];
   
   let targetNode: CategoryNode | null = null;
   const findNode = (nodes: CategoryNode[]) => {

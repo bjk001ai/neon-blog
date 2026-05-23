@@ -6,7 +6,7 @@ import { CATEGORIES, CategoryNode } from '../lib/categories';
 config();
 
 function getLeafCategoryNames(nodes: CategoryNode[]): string[] {
-  let list: string[] = [];
+  const list: string[] = [];
   for (const node of nodes) {
     if (!node.children || node.children.length === 0) {
       list.push(node.name);
@@ -102,8 +102,9 @@ async function check() {
       } else {
         console.log(`✅ FETCH SUCCESS: ${url} returned status ${res.status}`);
       }
-    } catch (err: any) {
-      console.log(`❌ FETCH ERROR: ${url} failed with error: ${err?.message || err}`);
+    } catch (err: unknown) {
+      const errMsg = err instanceof Error ? err.message : String(err);
+      console.log(`❌ FETCH ERROR: ${url} failed with error: ${errMsg}`);
       brokenUrls.add(url);
     }
   }

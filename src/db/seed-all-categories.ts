@@ -740,7 +740,7 @@ const categoryThumbnailMap: Record<string, string> = {
 
 // Dynamically traverse categories array to collect all leaves
 function getLeafCategoryNames(nodes: CategoryNode[]): string[] {
-  let list: string[] = [];
+  const list: string[] = [];
   for (const node of nodes) {
     if (!node.children || node.children.length === 0) {
       list.push(node.name);

@@ -7,7 +7,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
   const resolvedParams = await searchParams;
   const q = resolvedParams.q || "";
 
-  let searchResults: any[] = [];
+  let searchResults: (typeof posts.$inferSelect)[] = [];
   if (q.trim()) {
     searchResults = await db
       .select()
@@ -38,7 +38,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
       {q.trim() && (
         <div className="animate-in slide-in-from-bottom-4 duration-500">
           <h2 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-            <span className="text-blue-500">'{q}'</span> 검색 결과 <span className="text-gray-400 font-normal text-sm ml-2">{searchResults.length}건</span>
+            <span className="text-blue-500">&apos;{q}&apos;</span> 검색 결과 <span className="text-gray-400 font-normal text-sm ml-2">{searchResults.length}건</span>
           </h2>
           
           {searchResults.length > 0 ? (
