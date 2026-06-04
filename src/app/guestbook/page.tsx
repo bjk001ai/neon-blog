@@ -20,10 +20,12 @@ export default async function GuestbookPage() {
   async function addEntry(formData: FormData) {
     "use server";
     const message = formData.get("message") as string;
+    const name = formData.get("author") as string | null;
+    const author = name && name.trim() !== "" ? name.trim() : '방문자';
     if (!message || message.trim() === "") return;
 
     await db.insert(guestbook).values({
-      author: '방문자',
+      author,
       message: message.trim(),
     });
     
@@ -39,9 +41,16 @@ export default async function GuestbookPage() {
         <p className="text-gray-500 mb-8">자유롭게 발자취를 남겨주세요!</p>
         
         <form action={addEntry} className="bg-gray-50 p-6 rounded-2xl text-left border border-gray-100 relative">
-          <textarea 
+          <input
+            name="author"
+            type="text"
+            placeholder="이름 (선택)"
+            className="w-full mb-3 px-3 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 transition-colors"
+            maxLength={100}
+          />
+          <textarea
             name="message"
-            placeholder="여기에 방명록을 남겨주세요..." 
+            placeholder="여기에 방명록을 남겨주세요..."
             className="w-full h-32 px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 transition-colors resize-none"
             required
           ></textarea>
